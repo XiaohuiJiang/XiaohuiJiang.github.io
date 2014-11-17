@@ -4,6 +4,7 @@ XiaohuiJiang.github.io
 personal blog to collect some daily tips.
 
 how this site is created:
+========================
 
 1. following [https://help.github.com/](https://help.github.com/) to create a user github pages and with automatic generator. waiting for 15 minutes before it can show the new pages in browser.
 some other useful reference info:
@@ -15,4 +16,14 @@ some other useful reference info:
  * [The Quickest Way to Blog on GitHub Pages. | ruhoh ...](http://jekyllbootstrap.com/)
  * [Build A Blog With Jekyll And GitHub Pages | Smashing ...](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/)
 4. [Keeping Jekyll up to date](https://help.github.com/articles/using-jekyll-with-pages/)
+ 
+
+License
+=======
+The following directories and their contents are Copyright Xiaohui Jiang.  You may not reuse anything therein without my permission:
+
+*   _posts/
+*   images/
+
+All other directories and files are MIT Licensed.
 

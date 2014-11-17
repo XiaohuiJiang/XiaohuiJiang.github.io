@@ -3,7 +3,7 @@ XiaohuiJiang.github.io
 
 personal blog to collect some daily tips.
 
-how this site is created:
+How this site is created:
 ========================
 
 1. following [https://help.github.com/](https://help.github.com/) to create a user github pages and with automatic generator. waiting for 15 minutes before it can show the new pages in browser.

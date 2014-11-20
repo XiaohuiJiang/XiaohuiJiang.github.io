@@ -12,7 +12,7 @@ some other useful reference info:
  * [Markdown examples](https://guides.github.com/features/mastering-markdown/)
  * [jekyll](http://jekyllrb.com/docs/home/)
 2. following [https://help.github.com/articles/set-up-git/](https://help.github.com/articles/set-up-git/) to setup client.
-3. create files for blog, following "github blog" in google:
+3. create files for blog, searching "github blog" in google, fork other reprository from github as project gh-pages,
  * [The Quickest Way to Blog on GitHub Pages. | ruhoh ...](http://jekyllbootstrap.com/)
  * [Build A Blog With Jekyll And GitHub Pages | Smashing ...](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/)
 4. [Keeping Jekyll up to date](https://help.github.com/articles/using-jekyll-with-pages/)

@@ -16,14 +16,15 @@ some other useful reference info:
  * [The Quickest Way to Blog on GitHub Pages. | ruhoh ...](http://jekyllbootstrap.com/)
  * [Build A Blog With Jekyll And GitHub Pages | Smashing ...](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/)
 4. [Keeping Jekyll up to date](https://help.github.com/articles/using-jekyll-with-pages/)
- 
+5. started the theme from [jekyll](https://github.com/jekyll/jekyll) gh-pages
 
 License
 =======
 The following directories and their contents are Copyright Xiaohui Jiang.  You may not reuse anything therein without my permission:
 
 *   _posts/
-*   images/
+*   img/
+*   _docs/
 
 All other directories and files are MIT Licensed.
 

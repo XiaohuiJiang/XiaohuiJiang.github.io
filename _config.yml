@@ -1,14 +1,16 @@
 markdown: kramdown
 highlighter: pygments
 relative_permalinks: false
-permalink: /news/:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
 excerpt_separator: ""
 
-gauges_id: 503c5af6613f5d0f19000027
-google_analytics_id: UA-50755011-1
+gauges_id: 
+google_analytics_id: UA-56994895-1
 
-repository: https://github.com/jekyll/jekyll
-help_url: https://github.com/jekyll/jekyll-help
+repository: https://github.com/XiaohuiJiang/XiaohuiJiang.github.io
+help_url: 
+#URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: https://avatars2.githubusercontent.com/u/6941868?v=3&s=460
 
 collections:
   docs:

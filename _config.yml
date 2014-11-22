@@ -1,7 +1,7 @@
 markdown: kramdown
 highlighter: pygments
 relative_permalinks: false
-permalink: /blog/:year/:month/:day/:title/
+permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
 
 gauges_id: 

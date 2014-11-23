@@ -12,7 +12,7 @@
     <ul>
       {% for post in site.posts limit:10 %}
       <li class="{% if page.title == post.title %}current{% endif %}">
-      <a href="{{ post.url }}">{{ post.title }} Version {{ post.version }}</a>
+      <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
       {% endfor %}
     </ul>

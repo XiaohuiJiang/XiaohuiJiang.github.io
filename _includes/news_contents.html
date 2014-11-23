@@ -2,32 +2,19 @@
   <aside>
     <ul>
       <li class="{% if page.title == 'News' %}current{% endif %}">
-        <a href="/news/">All News</a>
+        <a href="/news/">All Blogs</a>
       </li>
-      <li class="{% if page.title == 'Releases' %}current{% endif %}">
-        <a href="/news/releases/">Jekyll Releases</a>
+      <li class="{% if page.title == 'git' %}current{% endif %}">
+        <a href="/news/git/">Git Relelated</a>
       </li>
     </ul>
-    <h4>Recent Releases</h4>
+    <h4>Recent Blogs</h4>
     <ul>
-      {% for post in site.categories.release limit:5 %}
+      {% for post in site.posts limit:10 %}
       <li class="{% if page.title == post.title %}current{% endif %}">
-        <a href="{{ post.url }}">Version {{ post.version }}</a>
+      <a href="{{ post.url }}">{{ post.title }} Version {{ post.version }}</a>
       </li>
       {% endfor %}
-      <li>
-        <a href="/docs/history/">History »</a>
-      </li>
-    </ul>
-    <h4>Other News</h4>
-    <ul>
-        {% for post in site.posts %}
-        {% unless post.categories contains 'release' %}
-        <li class="{% if page.title == post.title %}current{% endif %}">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-        {% endunless %}
-        {% endfor %}
     </ul>
   </aside>
 </div>

@@ -2,7 +2,7 @@
 layout: docs
 title: Favorites
 next_section: bashexample
-permalink: /docs/weblinks/
+permalink: /docs/favorites/
 ---
 
 ###[Github](https://github.com/)

@@ -2,7 +2,7 @@
 layout: docs
 title: Git Examples
 prev_section: bashexample
-next_section: 
+next_section: tclexample
 permalink: /docs/gitexample/
 ---
 

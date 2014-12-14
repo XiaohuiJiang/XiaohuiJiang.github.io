@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Bash Examples
-prev_section: weblinks
+prev_section: favorites
 next_section: gitexample 
 permalink: /docs/bashexample/
 ---
@@ -20,12 +20,10 @@ $ find ./ -name '*PRBS*' -print | sed  -n -r 's/(.*)PRBS(.*)/mv & \1prbs\2/ p' |
 $ awk 'BEGIN { FS = ":" } ; {print $1, $3}' ./ts_changes.txt | sort -u
 # => similar command can be used in VIM, also can change sequence of field
 :105,112 !awk 'BEGIN { FS = ":" } ; {print $3, $1}' | sort -u
-
 {% endhighlight %}
 
-{% highlight tcl %}
-# => rename some files with pattern 'prbs' by Tcl
-set org_files [glob *prbs*]
-foreach file $org_files { puts $file; regsub "prbs" $file "PRBS" fnew; puts $fnew; file rename $file $fnew;}
-  
+{% highlight bash %}
+{% include code/bash_for.sh %}
 {% endhighlight %}
+
+

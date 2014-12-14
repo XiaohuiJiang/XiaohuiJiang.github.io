@@ -4,15 +4,18 @@
       <li class="{% if page.title == 'News' %}current{% endif %}">
         <a href="/news/">All Blogs</a>
       </li>
+    </ul>
+    <ul>
+      <h4>Keywords</h4>
       <li class="{% if page.title == 'git' %}current{% endif %}">
-        <a href="/news/git/">Git Relelated</a>
+      <a href="/news/git/">Git</a>,<a href="/news/code/">Code</a>,
       </li>
     </ul>
     <h4>Recent Blogs</h4>
     <ul>
       {% for post in site.posts limit:10 %}
       <li class="{% if page.title == post.title %}current{% endif %}">
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <b style="color:red">-</b> <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
       {% endfor %}
     </ul>

@@ -1,0 +1,31 @@
+#!/usr/bin/expect -f
+
+if {$argc != 3} {
+    puts "Usage:"
+    puts "    $argv0 terminal_server_ip port loops"
+    puts "Example:"
+    puts "$argv0 10.1.1.2 58 2"
+    exit
+}
+
+set timeout 300
+
+set terminal_server [lrange $argv 0 0]
+set port   [lrange $argv 1 1]
+set loops   [lrange $argv 2 2]
+
+log_file ./result/progress-on-$port
+
+foreach rte     {yes no} {
+foreach ramdisk {big small} {
+foreach kernel {new old} {
+foreach mem    {4G 2G} {
+    set image bootimage.nbi-1212-$rte-$ramdisk-$kernel-$mem
+    set command "./board_boot.exp $terminal_server $port $image $loops"
+    puts $command
+    system $command
+    send_log "Done $command\n"
+    sleep 3
+}}}}
+
+log_file

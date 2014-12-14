@@ -1,0 +1,53 @@
+#!/usr/bin/expect -f
+
+if {$argc != 4} {
+    puts "Usage:"
+    puts "    $argv0 terminal_server_ip port image_name loops"
+    puts "Example:"
+    puts "$argv0 10.1.1.2 58 bootimage.nbi 2"
+    exit
+}
+
+set timeout 300
+set terminal_server [lrange $argv 0 0]
+set port   [lrange $argv 1 1]
+set image  [lrange $argv 2 2]
+set loops   [lrange $argv 3 3]
+ser user  "root" #to login
+
+log_file ./result/result-$image-on-$port
+for {set i 0} {$i<$loops} {incr i 1} {
+
+puts "**************************** Iteration $i  ****************"
+spawn telnet $terminal_server 20$port 
+
+expect_after timeout {
+    puts "#######Timeout! $image#######"
+    send_log "#######Timeout! $image#######\n"
+    log_file
+    exit
+}
+
+expect "Escape character*"
+send "\r\r"
+expect "to stop autoboot:*"
+send "\x03\r"
+expect "loader>"
+
+send "cmdline debug=0xff\r"
+expect "loader>"
+
+send "boot $image\r"
+expect "sup1 login:"
+send "$user\r"
+expect "root@sup1:~#"
+send "free\r"
+expect "root@sup1:~#" {send_log "PASSED $image at $i iteration"}
+
+send "\x1d\r"
+expect "telnet>"
+send "quit\r"
+expect "bash-3.2"
+sleep 3
+}
+log_file

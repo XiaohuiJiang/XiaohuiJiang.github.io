@@ -1,0 +1,93 @@
+#!/usr/bin/expect -f
+
+set timeout 120
+set image  [lrange $argv 0 0]
+set mem   [lrange $argv 1 1]
+
+set username "username"
+set server "remote_server"
+#
+#set board_ip    10.74.22.$port
+#set ethaddr     00:01:$port:00:00:01
+#set tftp_server 10.74.126.40
+#set gateway     10.74.22.1
+#set netmask     255.255.255.0
+
+log_file ./result/result-$image-on-$mem
+
+#connect power line
+spawn ssh $username@$remote_server
+set power_id $spawn_id
+expect "password:"
+send "Operator00\r"
+expect "$username@$remote_server%"
+sleep 2
+send "telnet 10.1.1.10 2014\r"
+sleep 2
+
+#connect console
+spawn ssh $username@$remote_server
+expect "password:"
+send "Passwd00\r"
+expect "$username@$remote_server%"
+sleep 2
+send "telnet 10.1.1.10 2015\r"
+
+expect_after timeout {
+    puts "#######Timeout! $image#######"
+    send_log "#######Timeout! $image#######\n"
+    log_file
+    exit
+}
+
+expect "Escape character*"
+send "\r\r"
+expect "to stop autoboot:*"
+send "\x03\r"
+expect "loader>"
+
+#send "sw\r"
+#expect "debug>"
+#send "setenv ipaddr $board_ip\r"
+#expect "debug>"
+#send "setenv serverip $tftp_server\r"
+#expect "debug>"
+#send "setenv gatewayip $gateway\r"
+#expect "debug>"
+#send "setenv netmask $netmask\r"
+#expect "debug>"
+#send "setenv ethaddr $ethaddr\r"
+#expect "debug>"
+#send "exit\r"
+#expect "loader>"
+
+send "cmdline debug=0xff mem=$mem memmap=128M\$1280M\r"
+expect "loader>"
+
+send "boot $image\r"
+expect "sup1 login:"
+send "root\r"
+expect "root@sup1:~#"
+send "free\r"
+expect "root@sup1:~#" {send_log "PASSED $image"}
+
+#disconnect console
+send "\x1d\r"
+expect "telnet>"
+send "quit\r"
+expect "$username@$remote_server"
+sleep 3
+send "exit\r"
+expect "bash-3.2$"
+
+#disconnect power line
+set spawn_id $power_id
+send "\x1d\r"
+expect "telnet>"
+send "quit\r"
+expect "$username@$remote_server"
+sleep 3
+send "exit\r"
+expect "bash-3.2$"
+
+log_file

@@ -3,7 +3,7 @@ layout: news_item
 title: Example of call another program in expect
 author: XiaohuiJiang
 version: 0.1
-categories: [code]
+categories: [expect]
 ---
 
 {% highlight tcl %}

@@ -3,7 +3,7 @@ layout: news_item
 title: Example of multi telnet session of expect
 author: XiaohuiJiang
 version: 0.1
-categories: [code]
+categories: [expect]
 ---
 
 {% highlight tcl %}

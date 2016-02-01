@@ -64,6 +64,19 @@ git clone --bare /path/to/git_project gitproject.git
 git clone --bare my_project my_project.git
 git init --bare --shared
 
+git branch -a -v
+
+#pull submodule
+git pull
+cd <submodule>
+git checkout master
+git pull
+
+#push submodule
+git push
+cd ..
+git add <submodule>
+git push
 
 {% endhighlight %}
 
